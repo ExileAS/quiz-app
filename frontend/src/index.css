@@ -1,0 +1,74 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.sidebar {
+  width: 15%;
+  height: 100%;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.sidebar-title {
+  color: #192bb6;
+  background-color: #222;
+  /* padding: 10px; */
+  text-align: center;
+}
+
+.tabs {
+  padding-top: 20px;
+}
+
+.tab {
+  color: #19538d;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tab:hover {
+  background-color: #555;
+}
+
+.tab.active {
+  background-color: #555;
+}
+
+.content {
+  margin-left: 20%; /* Same as sidebar width */
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .content {
+    margin: 0;
+  }
+}
+
+.search-bar {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -1%;
+}
+
+.search-input {
+  padding: 3px;
+}
+
+.search-res {
+  position: relative;
+  text-align: center;
+  color: #20448a;
+}
