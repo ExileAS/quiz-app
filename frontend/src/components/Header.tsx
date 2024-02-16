@@ -1,23 +1,17 @@
+import SearchBar from "./SearchBar";
+
 const Header = () => {
   return (
-    <header className="top-nav">
-      <div className="welcome-user">Welcome, User</div>
-      <div className="search-input">
-        <form
-          className="nosubmit"
-          onSubmit={(e) => e.preventDefault()}
-          autoComplete="off"
-        >
-          <input
-            name="search-bar"
-            id="search-bar"
-            placeholder="search..."
-            className="nosubmit"
-            type="search"
-          ></input>
-        </form>
-        <br />
-      </div>
+    <header className="top-nav-header">
+      <nav className="top-nav">
+        <h2 className="welcome-user">Welcome, User</h2>
+        <SearchBar />
+        <div className="notification-tab">Notification</div>
+        <div className="messages-tab">Messages</div>
+        <div className="profile-tab">
+          <img src="profile.jpg" alt="" />
+        </div>
+      </nav>
     </header>
   );
 };

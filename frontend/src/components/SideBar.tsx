@@ -1,13 +1,23 @@
 import { useState } from "react";
+import { HomeMax } from "@mui/icons-material";
+import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
+
+interface Tab {
+  name: string;
+  active: boolean;
+  icon: ReactJSXElement;
+}
+
+type Tabs = Tab[];
 
 const SideBar = () => {
-  const [tabs, setTabs] = useState([
-    { name: "tab1", active: false },
-    { name: "tab2", active: false },
-    { name: "tab3", active: false },
-    { name: "tab4", active: false },
-    { name: "tab5", active: false },
-    { name: "tab6", active: false },
+  const [tabs, setTabs] = useState<Tabs>([
+    { name: "tab1", active: true, icon: <HomeMax color="primary" /> },
+    { name: "tab2", active: false, icon: <HomeMax color="primary" /> },
+    { name: "tab3", active: false, icon: <HomeMax color="primary" /> },
+    { name: "tab4", active: false, icon: <HomeMax color="primary" /> },
+    { name: "tab5", active: false, icon: <HomeMax color="primary" /> },
+    { name: "tab6", active: false, icon: <HomeMax color="primary" /> },
   ]);
 
   const handleTabClick = (ind: number) => {
@@ -23,12 +33,14 @@ const SideBar = () => {
       className={tab.active ? "tab active" : "tab"}
       onClick={() => handleTabClick(ind)}
     >
-      {tab.name}
+      {tab.icon}
     </div>
   ));
   return (
     <aside className="sidebar">
-      <header className="sidebar-title">Sidebar Title</header>
+      <header className="sidebar-title">
+        <h2>Sidebar Title</h2>
+      </header>
       <nav className="tabs">{content}</nav>
     </aside>
   );
