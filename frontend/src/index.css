@@ -16,12 +16,12 @@ html {
 
 .tab:hover {
   background-color: #ffffff;
-  color: #a5f4da;
+  color: #8ee0c5;
 }
 
 .tab.active {
   background-color: #ffffff;
-  color: #a5f4da;
+  color: #89dbbf;
 }
 
 a {
@@ -181,4 +181,9 @@ header {
 
 .main-title {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.quote {
+  color: rgb(9, 159, 159);
+  font-size: x-small;
 }
