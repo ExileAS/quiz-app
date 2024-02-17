@@ -1,6 +1,15 @@
 import { useState } from "react";
-import { HomeMax } from "@mui/icons-material";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
+import {
+  Home,
+  EventNote,
+  CalendarMonth,
+  School,
+  Campaign,
+  ShowChart,
+} from "@mui/icons-material";
+import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 
 interface Tab {
   name: string;
@@ -10,14 +19,46 @@ interface Tab {
 
 type Tabs = Tab[];
 
+const useStyles = makeStyles(() => ({
+  whiteIcon: {
+    color: "#fff",
+  },
+}));
+
 const SideBar = () => {
+  const classes = useStyles();
+
   const [tabs, setTabs] = useState<Tabs>([
-    { name: "tab1", active: true, icon: <HomeMax color="primary" /> },
-    { name: "tab2", active: false, icon: <HomeMax color="primary" /> },
-    { name: "tab3", active: false, icon: <HomeMax color="primary" /> },
-    { name: "tab4", active: false, icon: <HomeMax color="primary" /> },
-    { name: "tab5", active: false, icon: <HomeMax color="primary" /> },
-    { name: "tab6", active: false, icon: <HomeMax color="primary" /> },
+    {
+      name: "Dashboard",
+      active: false,
+      icon: <Home className={classes.whiteIcon} />,
+    },
+    {
+      name: "Schedule",
+      active: false,
+      icon: <CalendarMonth className={classes.whiteIcon} />,
+    },
+    {
+      name: "Courses",
+      active: false,
+      icon: <EventNote className={classes.whiteIcon} />,
+    },
+    {
+      name: "Gradebook",
+      active: false,
+      icon: <School className={classes.whiteIcon} />,
+    },
+    {
+      name: "Performance",
+      active: false,
+      icon: <ShowChart className={classes.whiteIcon} />,
+    },
+    {
+      name: "Announcment",
+      active: false,
+      icon: <Campaign className={classes.whiteIcon} />,
+    },
   ]);
 
   const handleTabClick = (ind: number) => {
@@ -28,18 +69,25 @@ const SideBar = () => {
     );
   };
 
-  const content = tabs.map((tab, ind) => (
+  const content = tabs.map((tab: Tab, ind) => (
     <div
       className={tab.active ? "tab active" : "tab"}
       onClick={() => handleTabClick(ind)}
+      key={tab.name}
     >
-      {tab.icon}
+      <i>{tab.icon}</i>
+
+      <Link to={tab.name} className={tab.active ? "tab active" : "tab"}>
+        {tab.name}
+      </Link>
     </div>
   ));
   return (
     <aside className="sidebar">
       <header className="sidebar-title">
-        <h2>Sidebar Title</h2>
+        <h1 className="main-title">
+          <Link to="/">Coligo</Link>
+        </h1>
       </header>
       <nav className="tabs">{content}</nav>
     </aside>

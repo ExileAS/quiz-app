@@ -3,45 +3,58 @@ html {
   margin: 0;
   padding: 0;
   height: 100%;
+  background-color: #f3f0f0;
+}
+
+.tab {
+  color: #ffffff;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  justify-content: space-between;
+}
+
+.tab:hover {
+  background-color: #ffffff;
+  color: #a5f4da;
+}
+
+.tab.active {
+  background-color: #ffffff;
+  color: #a5f4da;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: aquamarine;
 }
 
 .sidebar {
   width: 15%;
   height: 100%;
-  background-color: #3e7ebe;
+  background-color: #07223d;
   position: fixed;
   top: 0;
   left: 0;
 }
 
 .sidebar-title {
-  color: #192bb6;
-  background-color: #3e7ebe;
-  /* padding: 10px; */
+  color: #ffffff;
+  background-color: #06223e;
   text-align: center;
 }
 
 .tabs {
-  padding-top: 20px;
-}
-
-.tab {
-  color: #19538d;
-  padding: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.tab:hover {
-  background-color: #ffffff;
-}
-
-.tab.active {
-  background-color: #ffffff;
+  padding: 0;
+  margin: 0;
 }
 
 .content {
-  margin-left: 20%; /* Same as sidebar width */
+  margin-left: 20%;
   padding: 20px;
 }
 
@@ -76,11 +89,13 @@ input.nosubmit {
 }
 
 header {
-  background-color: #3e7ebe;
+  background-color: #ffffff;
 }
 
+/* Default styles */
 .top-nav-header {
   margin-left: 16%;
+  border-radius: 9px;
 }
 
 .top-nav {
@@ -95,4 +110,75 @@ header {
   margin-top: 20%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.welcome-user {
+  margin-right: 20%;
+}
+
+.notification-tab {
+  margin-left: 10%;
+}
+
+.profile-badge {
+  margin-right: 5%;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .top-nav-header {
+    margin-left: 10%;
+  }
+
+  .top-nav {
+    padding: 10px 10px;
+    margin-left: 2%;
+  }
+
+  .register {
+    margin-top: 10%;
+  }
+
+  .welcome-user {
+    margin-right: 10%;
+  }
+
+  .notification-tab {
+    margin-left: 5%;
+  }
+
+  .profile-badge {
+    margin-right: 2%;
+  }
+}
+
+@media (max-width: 576px) {
+  .top-nav-header {
+    margin-left: 5%;
+  }
+
+  .top-nav {
+    padding: 10px 5px;
+    margin-left: 1%;
+  }
+
+  .register {
+    margin-top: 5%;
+  }
+
+  .welcome-user {
+    margin-right: 5%;
+  }
+
+  .notification-tab {
+    margin-left: 2%;
+  }
+
+  .profile-badge {
+    margin-right: 1%;
+  }
+}
+
+.main-title {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
