@@ -5,6 +5,7 @@ import person1 from "../images/person1.jpeg";
 import person2 from "../images/person2.jpeg";
 import person3 from "../images/person3.jpeg";
 import person4 from "../images/person4.avif";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,6 +50,10 @@ const useStyles = makeStyles((theme) => ({
 
 const HorizontalCards = () => {
   const classes = useStyles();
+  const announcements = useSelector(
+    (state: any) => state.announcment.announcments
+  );
+  const quizes = useSelector((state: any) => state.quiz.quizes);
 
   return (
     <div className={classes.root}>
@@ -65,7 +70,9 @@ const HorizontalCards = () => {
                   src={person1}
                   className={classes.avatar}
                 />
-                <Typography variant="body1">Paragraph 1 by Person 1</Typography>
+                <Typography variant="body1">
+                  {announcements[0].content}
+                </Typography>
               </div>
               <div className={classes.avatarContainer}>
                 <Avatar
@@ -73,7 +80,9 @@ const HorizontalCards = () => {
                   src={person2}
                   className={classes.avatar}
                 />
-                <Typography variant="body1">Paragraph 2 by Person 2</Typography>
+                <Typography variant="body1">
+                  {announcements[1].content}
+                </Typography>
               </div>
               <div className={classes.avatarContainer}>
                 <Avatar
@@ -81,7 +90,9 @@ const HorizontalCards = () => {
                   src={person3}
                   className={classes.avatar}
                 />
-                <Typography variant="body1">Paragraph 3 by Person 3</Typography>
+                <Typography variant="body1">
+                  {announcements[2].content}
+                </Typography>
               </div>
               <div className={classes.avatarContainer}>
                 <Avatar
@@ -89,7 +100,9 @@ const HorizontalCards = () => {
                   src={person4}
                   className={classes.avatar}
                 />
-                <Typography variant="body1">Paragraph 4 by Person 4</Typography>
+                <Typography variant="body1">
+                  {announcements[3].content}
+                </Typography>
               </div>
             </div>
           </CardContent>
@@ -100,7 +113,8 @@ const HorizontalCards = () => {
             <Typography variant="h5" gutterBottom>
               <b>What's due</b>
             </Typography>
-            <Typography variant="body1">Vertical Card Content</Typography>
+            <Typography variant="body1">{quizes[0].topic}</Typography>
+            <Typography variant="body2">{quizes[1].topic}</Typography>
           </CardContent>
         </Card>
       </div>

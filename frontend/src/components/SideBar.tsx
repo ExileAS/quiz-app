@@ -77,9 +77,7 @@ const SideBar = () => {
     >
       <i>{tab.icon}</i>
 
-      <Link to={tab.name} className={tab.active ? "tab active" : "tab"}>
-        {tab.name}
-      </Link>
+      <Link to={tab.name}>{tab.name}</Link>
     </div>
   ));
   return (

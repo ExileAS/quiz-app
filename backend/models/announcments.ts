@@ -19,5 +19,3 @@ const announcmentSchema = new Schema({
 const announcmentModel = mongoose.model("Announcment", announcmentSchema);
 
 module.exports = announcmentModel;
-
-export {};

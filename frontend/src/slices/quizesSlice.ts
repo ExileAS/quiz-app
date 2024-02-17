@@ -7,11 +7,13 @@ const initialState = {
 
 export const fetchQuizes = createAsyncThunk("quizes/fetchQuizes", async () => {
   try {
+    console.log("fetching");
     const res = await fetch("/api/quizes", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
     const data = await res.json();
+    console.log(data);
     return data;
   } catch (err) {
     console.log(err);
@@ -24,7 +26,8 @@ const announcmentsSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder.addCase(fetchQuizes.fulfilled, (state, action) => {
-      state.quizes = action.payload;
+      console.log(action.payload);
+      state.quizes = action.payload.result;
       return state;
     });
   },
