@@ -22,7 +22,19 @@ type Tabs = Tab[];
 
 const useStyles = makeStyles(() => ({
   whiteIcon: {
-    color: "#fff",
+    color: "#ffffff",
+    padding: "10px",
+    cursor: "pointer",
+    justifyContent: "space-between",
+    fontSize: "20px",
+  },
+  activeIcon: {
+    padding: "10px",
+    cursor: "pointer",
+    justifyContent: "space-between",
+    backgroundColor: "#ffffff",
+    color: "#4fba96",
+    fontSize: "20px",
   },
 }));
 
@@ -71,16 +83,28 @@ const SideBar = () => {
     );
   };
 
-  const content = tabs.map((tab: Tab, ind) => (
-    <div
-      className={tab.active ? "tab active" : "tab"}
-      onClick={() => handleTabClick(ind)}
-      key={tab.name}
-    >
-      <i>{tab.icon}</i>
+  const handleMouseOver = (ind: number) => {
+    setTabs(
+      tabs.map((tab, i) => {
+        return i === ind ? { ...tab, active: true } : { ...tab, active: false };
+      })
+    );
+  };
 
-      <Link to={tab.name}>{`${t(tab.name)}`}</Link>
-    </div>
+  const content = tabs.map((tab: Tab, ind) => (
+    <Link to={tab.name} className={classes.whiteIcon}>
+      <div
+        className={tab.active ? classes.activeIcon : classes.whiteIcon}
+        onClick={() => handleTabClick(ind)}
+        onMouseOver={() => handleMouseOver(ind)}
+        key={tab.name}
+      >
+        <i className={tab.active ? classes.activeIcon : classes.whiteIcon}>
+          {tab.icon}
+        </i>
+        {`${t(tab.name)}`}
+      </div>
+    </Link>
   ));
   return (
     <aside className="sidebar">

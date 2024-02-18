@@ -6,7 +6,7 @@ const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
-    <div className="register">
+    <div className="register" data-testid="login-button">
       <Button
         variant="contained"
         onClick={() => {

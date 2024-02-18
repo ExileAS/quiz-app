@@ -10,13 +10,28 @@ const userPersistConfig = {
   storage,
 };
 
+const announcmentPersistConfig = {
+  key: "announcment",
+  storage,
+};
+
+const quizPersistConfig = {
+  key: "quiz",
+  storage,
+};
+
 const persistedReducerUser = persistReducer(userPersistConfig, userReducer);
+const persistedReducerAnnouncment = persistReducer(
+  announcmentPersistConfig,
+  announcmentReducer
+);
+const persistedReducerQuiz = persistReducer(quizPersistConfig, quizReducer);
 
 const store = configureStore({
   reducer: {
     user: persistedReducerUser,
-    announcment: announcmentReducer,
-    quiz: quizReducer,
+    announcment: persistedReducerAnnouncment,
+    quiz: persistedReducerQuiz,
   },
 });
 

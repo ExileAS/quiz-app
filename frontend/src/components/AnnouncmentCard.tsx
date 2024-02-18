@@ -12,6 +12,7 @@ const useStyles = makeStyles({
     flexBasis: "70%",
     marginLeft: "12%",
     textAlign: "left",
+    borderRadius: "9px",
   },
   avatar: {
     marginRight: "8px",
@@ -26,6 +27,10 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     marginBottom: "8px",
+  },
+  paragraph: {
+    paddingLeft: "8px",
+    borderLeft: "1px solid #ccc",
   },
 });
 
@@ -45,19 +50,39 @@ export default function AnnouncmentCard() {
         <div className={classes.announcmentCardContent}>
           <div className={classes.avatarContainer}>
             <Avatar alt="Person 1" src={person1} className={classes.avatar} />
-            <Typography variant="body1">{announcements[0].content}</Typography>
+            <Typography variant="body1" className={classes.paragraph}>
+              {t(announcements[0].content)} Lorem ipsum dolor sit amet,
+              consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+              Aenean massa. Cum sociis natoque penatibus et magnis dis
+            </Typography>
           </div>
           <div className={classes.avatarContainer}>
             <Avatar alt="Person 2" src={person2} className={classes.avatar} />
-            <Typography variant="body1">{announcements[1].content}</Typography>
+            <Typography variant="body1" className={classes.paragraph}>
+              {t(announcements[1].content)} parturient montes, nascetur
+              ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
+              pretium quis, sem. Nulla consequat massa quis enim. Donec pede
+              justo, fringilla vel, aliquet nec, vulputate eget, arcu. In
+            </Typography>
           </div>
           <div className={classes.avatarContainer}>
             <Avatar alt="Person 3" src={person3} className={classes.avatar} />
-            <Typography variant="body1">{announcements[2].content}</Typography>
+            <Typography variant="body1" className={classes.paragraph}>
+              {t(announcements[2].content)} enim justo, rhoncus ut, imperdiet a,
+              venenatis vitae, justo. Nullam dictum felis eu pede mollis
+              pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper
+              nisi. Aenean vulputate eleifend tellus. Aenean leo ligula,
+              porttitor eu, consequat vitae, eleifend ac, enim
+            </Typography>
           </div>
           <div className={classes.avatarContainer}>
             <Avatar alt="Person 4" src={person4} className={classes.avatar} />
-            <Typography variant="body1">{announcements[3].content}</Typography>
+            <Typography variant="body1" className={classes.paragraph}>
+              {t(announcements[3].content)} Aliquam lorem ante, dapibus in,
+              viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus
+              varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies
+              nisi vel augue. Curabitur ullamcorper ultricies nisi.
+            </Typography>
           </div>
         </div>
       </CardContent>

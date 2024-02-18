@@ -2,6 +2,7 @@ import { Button, Card, CardContent, Typography } from "@mui/material";
 import HorizontalCards from "./HorizontalCards";
 import cardBackground from "../images/card-background.webp";
 import { makeStyles } from "@material-ui/core/styles";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,27 +31,25 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DashboardContent() {
   const classes = useStyles();
+  const { t } = useTranslation();
   return (
     <>
       <div className={classes.root}>
         <Card className={classes.card}>
           <CardContent className={classes.content}>
             <Typography variant="h5" gutterBottom style={{ color: "#6eb69e" }}>
-              Exams Time
+              {t("ExamsTime")}
             </Typography>
             <Typography variant="body1" style={{ color: "grey" }}>
-              Here we are, Are you ready to fight? Don't worry, we prepared some
-              tips to be ready for your exams
-              <p className="quote">
-                "nothing happens until something moves"-Albert Einstein
-              </p>
+              {t("MainParagraph")}
+              <p className="quote">"{t("AlbertQuote")}"-Albert Einstein</p>
             </Typography>
             <Button
               variant="contained"
               color="primary"
               className={classes.button}
             >
-              View Exams Tips
+              {t("ViewTips")}
             </Button>
           </CardContent>
         </Card>

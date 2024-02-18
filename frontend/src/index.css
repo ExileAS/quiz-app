@@ -6,31 +6,9 @@ html {
   background-color: #f3f0f0;
 }
 
-.tab {
-  color: #ffffff;
-  padding: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  justify-content: space-between;
-}
-
-.tab:hover {
-  background-color: #ffffff;
-  color: #8ee0c5;
-}
-
-.tab.active {
-  background-color: #ffffff;
-  color: #89dbbf;
-}
-
 a {
   text-decoration: none;
   color: white;
-}
-
-a:hover {
-  color: aquamarine;
 }
 
 .sidebar {
@@ -224,4 +202,9 @@ header {
   100% {
     transform: scale(2);
   }
+}
+
+.quiz-title {
+  color: grey;
+  margin-left: 8px;
 }

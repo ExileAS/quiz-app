@@ -20,7 +20,7 @@ const LandingPage = () => {
   });
 
   return (
-    <div className="register">
+    <div className="register" data-testid="register-div">
       {!isLogged ? (
         <Register />
       ) : (
