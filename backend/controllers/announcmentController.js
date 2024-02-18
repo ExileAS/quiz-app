@@ -18,3 +18,38 @@ module.exports.get_all_announcments = (req, res) => __awaiter(this, void 0, void
         res.status(400).json({ err: err.message });
     }
 });
+module.exports.post_add_announcment = (req, res) => __awaiter(this, void 0, void 0, function* () {
+    const { announcment } = req.body;
+    try {
+        const newAnnouncment = yield AnnouncmentModel.create(Object.assign({}, announcment));
+        res.status(201).json({ id: newAnnouncment._id });
+    }
+    catch (err) {
+        console.log(err);
+        res.status(400).json({ err: err.message });
+    }
+});
+module.exports.post_update_announcment = (req, res) => __awaiter(this, void 0, void 0, function* () {
+    const { id, updates } = req.body;
+    try {
+        const updatedAnnouncment = yield AnnouncmentModel.findByIdAndUpdate({ _id: id }, {
+            $set: { updates },
+        }, { new: true, upsert: true });
+        res.status(200).json({ id: updatedAnnouncment._id });
+    }
+    catch (err) {
+        console.log(err);
+        res.status(400).json(400);
+    }
+});
+module.exports.delete_announcment = (req, res) => __awaiter(this, void 0, void 0, function* () {
+    const { id } = req.body;
+    try {
+        yield AnnouncmentModel.findByIdAndDelete({ _id: id });
+        res.status(204).json({ msg: "deleted succcessfully" });
+    }
+    catch (err) {
+        console.log(err);
+        res.status(400).json({ err: err.message });
+    }
+});

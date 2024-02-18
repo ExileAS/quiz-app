@@ -10,6 +10,7 @@ import {
 } from "@mui/icons-material";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 interface Tab {
   name: string;
@@ -27,6 +28,7 @@ const useStyles = makeStyles(() => ({
 
 const SideBar = () => {
   const classes = useStyles();
+  const { t } = useTranslation();
 
   const [tabs, setTabs] = useState<Tabs>([
     {
@@ -77,7 +79,7 @@ const SideBar = () => {
     >
       <i>{tab.icon}</i>
 
-      <Link to={tab.name}>{tab.name}</Link>
+      <Link to={tab.name}>{`${t(tab.name)}`}</Link>
     </div>
   ));
   return (

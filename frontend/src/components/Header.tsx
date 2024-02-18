@@ -5,6 +5,7 @@ import Avatar from "@material-ui/core/Avatar";
 import Badge from "@material-ui/core/Badge";
 import { makeStyles } from "@material-ui/core/styles";
 import profileImg from "../images/face.jpeg";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   avatarBadge: {
@@ -17,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = () => {
   const classes = useStyles();
+  const { t } = useTranslation();
   const notificationsCount = 1;
   const messagesCount = 3;
 
@@ -25,7 +27,7 @@ const Header = () => {
   return (
     <header className="top-nav-header">
       <nav className="top-nav">
-        <h2 className="welcome-user">Welcome, User</h2>
+        <h2 className="welcome-user">{t("welcome")}</h2>
         <SearchBar />
         <div className="notification-tab">
           <Badge badgeContent={messagesCount} color="secondary">
